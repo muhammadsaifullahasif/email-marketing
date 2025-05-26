@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Jquery Test</title>
+         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            // program to check if a string starts with 'S' and ends with 'G'
+
+            function checkString(str) {
+
+                // check if the string starts with S and ends with G
+                if(str.startsWith('s') && str.endsWith('g')) {
+                    console.log('The string starts with S and ends with G');
+                }
+                else if(str.startsWith('s')) {
+                    console.log('The string starts with S but does not end with G');
+                }
+                 else if(str.endsWith('g')) {
+                    console.log('The string starts does not with S but end with G');
+                }
+                else {
+                    console.log('The string does not start with S and does not end with G');
+                }
+            }
+
+
+            // $('#get_href').on('click', function(){
+                // take input
+                var string = '<table id="iwil" width="100%" height="150" style="box-sizing: border-box; height: 150px; margin: 0 auto 10px auto; padding: 5px 5px 5px 5px; width: 100%;"><tbody id="ioog" style="box-sizing: border-box;"><tr id="ibbv" style="box-sizing: border-box;"><td id="itzl" valign="top" style="box-sizing: border-box; padding: 0; margin: 0; vertical-align: top;"><img id="io1s" src="http://localhost/email-marketing/dashboard/attachments/WhatsApp_Image_2022-12-14_at_4.58.25_PM.jpeg" width="200" height="200" style="box-sizing: border-box; color: black; width: 200px; height: 200px; margin: 0 auto 0 auto; padding: 0 auto 0 auto; text-align: center;"><div id="ilg6" style="box-sizing: border-box; padding: 10px; font-size: 50px; font-weight: 700; text-align: center;">New <a href="https://wirecoder.com" class="link" style="box-sizing: border-box;">Template</a></div><h1 class="heading" id="iog3" style="box-sizing: border-box;">Insert title <a href="https://misttechnology.co" class="link" style="box-sizing: border-box;">here</a></h1><p class="paragraph" id="iekqg" style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></td></tr></tbody></table>';
+                // checkString(string);
+                string = string.split(' ');
+                var href_links = '', j = 0, result;
+
+                for(var i = 0; i < string.length; i++) {
+
+                    // console.log(string[i]);
+                    /*if(string[i].startsWith('href="') || string[i].startsWith("href='")) {
+                        console.log(string[i]);
+                    }*/
+
+                    if(string[i].startsWith('href="') || string[i].startsWith("href='")) {
+                        result = string[i].substr(6);
+                        result = result.slice(0, -1);
+                        // console.log(j);
+                        if(j == 0) {
+                            href_links += result;
+                        } else {
+                            href_links += ','+result;
+                        }
+                        j++;
+                    }
+
+                }
+
+                console.log(href_links);
+            // });
+        });
+        </script>
+    </head>
+    <body>
+        <p id="text"></p>
+        <!-- <a href="http://jquery.com/">jQuery</a>
+        <a href="https://wirecoder.com">WireCoder</a> -->
+        <!-- <button id="get_href">Get Href</button> -->
+    </body>
+</html>
